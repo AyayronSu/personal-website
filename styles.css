@@ -1,0 +1,300 @@
+/* Import fonts - Consolidated for efficiency */
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+
+h1 {
+    text-align: center;
+    background-color: black;
+    color: white;
+    font-family: "Playfair Display", serif;
+    margin: 0;
+    padding-top: 20px;
+    font-size: 50px;
+}
+
+.navbar {
+    opacity: 0; /* Start invisible */
+    animation: fadeIn 1s ease-out 0.5s forwards; /* 1s duration, ease-out timing, 0.5s delay, stays visible */
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.navbar ul {
+    list-style-type: none;
+    background-color: black;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Use align-items for vertical centering in a single row */
+    margin: 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    gap: 20%;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    font-family: "Inter", sans-serif;
+    font-size: 12.8px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    display: inline-block; /* Essential for transform and pseudo-elements positioning */
+
+    /* For the line animation */
+    position: relative; /* This is crucial: makes the ::after pseudo-element position relative to the link */
+    overflow: hidden; /* Ensures the line doesn't extend beyond the link's bounds initially */
+}
+
+/* Base styles for the float-link class */
+.float-link {
+    transition: transform 0.2s ease; /* Smooth transition for the float effect */
+}
+
+/* Float effect on hover */
+.float-link:hover {
+    transform: translateY(-5px); /* Moves the element up by 5 pixels on hover */
+}
+
+/* Line animation using ::after pseudo-element */
+.navbar a::after {
+    content: ''; /* Required for pseudo-elements */
+    position: absolute; /* Position relative to the parent link */
+    bottom: 0; /* Position at the bottom of the link */
+    left: 0; /* Start from the left edge */
+    width: 0; /* Initial width is 0, so it's invisible */
+    height: 2px; /* Thickness of the line */
+    background-color: white; /* Color of the line */
+    transition: width 0.3s ease-out; /* Smooth transition for the width change */
+}
+
+/* Expand the line on hover */
+.navbar a:hover::after {
+    width: 100%; /* Expand to full width on hover */
+}
+
+.image-home {
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+    margin-top: 15px;
+    margin-bottom: 50px;
+}
+
+.image-home img {
+    display: block;
+    width: 100%; /* This is currently making it span 100% of its container */
+    height: auto;
+    object-fit: cover; /* Or 'contain' */
+    object-position: center;
+}
+
+.about-me-box-container {
+    background-color: black;
+    padding-bottom: 50px; /* Important to ensure space below the box */
+}
+
+/* Keep the .about-me-box styles as they are */
+.about-me-box {
+    width: 60%;
+    max-width: 700px;
+    margin: 30px 0 0 10%;
+    padding: 25px;
+    background-color: #111111;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+}
+
+.about-me-box p {
+    color: silver; /* Make text dark for visibility */
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
+    margin-left: 30px;
+}
+
+.about-me-box h1 {
+    background-color: transparent;
+    color: white;
+    font-size: 2.5em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-top: 0;
+    text-align: left;
+    margin-left: 30px;
+}
+
+.vl {
+    border-left: 1px solid white;
+    height: 200px;
+    width: 1px; /* Give it a width, e.g., 1px (or 2px, 3px for thicker) */
+    margin: 0 auto; /* This will now center the div horizontally */
+}
+
+.project-box-container {
+    background-color: black;
+    padding-bottom: 50px;
+    padding-left: 20px;  /* Keep the space from the very left edge of the screen */
+    padding-right: 20px; /* Keep the space from the very right edge of the screen */
+}
+
+.project-box {
+    width: 100%; /* Allows it to take full width of the padded container on smaller screens */
+    max-width: 80%; /* <--- SHRINK IT: Adjust this value to make the box narrower */
+                       /* A common range for main content is 600px to 900px for good readability */
+    margin: 30px auto 0 auto; /* Top margin, then horizontally centers the box */
+
+    /* Keep your existing styles */
+    padding: 25px; /* Internal padding of the box content */
+    background-color: #111111;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.project-box p {
+    color: silver; /* Make text dark for visibility */
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+    text-align: left;
+    margin-left: 30px;
+    margin-right: 55%
+}
+
+.project-box h1 {
+    background-color: transparent;
+    color: white;
+    font-size: 2.5em;
+    margin-top: 0;
+    margin-bottom: 15px;
+    padding-top: 0;
+    text-align: left;
+    margin-left: 30px;
+}
+
+.contact ul {
+    display: flex;
+    gap: 20px;
+    list-style-type: none;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+i {
+    font-size: 25px;
+    color: white;
+    transition: transform 0.2s ease;
+}
+
+i:hover {
+    transform: translateY(-3px);
+    cursor: pointer;
+}
+
+hr {
+    border-top: 1px solid;
+}   
+
+footer {
+    color: white;
+}
+
+.footer-wrapper {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.footer-contact {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30px;
+    
+}
+
+.footer-contact ul {
+    list-style-type: none;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 0;
+}
+
+.footer-contact a {
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    font-family: "Inter", sans-serif;
+    font-size: 12.8px;
+    font-weight: 500;
+    letter-spacing: 2px;
+    display: inline-block; /* Essential for transform and pseudo-elements positioning */
+    transition: transform 0.2s ease; /* Smooth transition for the float effect */
+}
+
+.footer-contact a:hover {
+    transform: translateY(-5px); /* Moves the element up by 5 pixels on hover */
+
+}
+
+.fade-in-on-scroll {
+    opacity: 0;
+    transform: translateY(50px); /* Starts 50px below its final position */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* Define transition for smooth animation */
+    will-change: opacity, transform; /* Optimize for animation performance */
+}
+
+/* Final state: Visible and in its normal position */
+/* This class will be added by JavaScript when the element enters the viewport */
+.fade-in-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0); /* Moves to its final position */
+}
+
+/* Optional: Stagger the animation */
+/* If you want items to appear one by one */
+.project-box.fade-in-on-scroll {
+    /* Base delay if you want a slight initial pause for all */
+    transition-delay: 0.1s; /* Start animating slightly after becoming visible */
+}
+
+.food4u-link {
+    text-decoration: none;
+    color: white;
+}
+
+.cta {
+    color: white;
+    font-family: "Inter";
+    font-size: 20px;
+    font-weight: 500;
+    text-align: center;
+}
